@@ -1,6 +1,6 @@
 {
   "name": "async-singleton",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "make async/promise function execute only one at a time.",
   "main": "index.js",
   "scripts": {
