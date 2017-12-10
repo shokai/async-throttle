@@ -8,7 +8,7 @@
     "build": "run-s build:*",
     "build:babel": "babel src/ --out-dir lib/ --source-maps true",
     "test": "run-s test:*",
-    "test:mocha": "mocha test -r babel-polyfill -r babel-register --timeout 10000",
+    "test:mocha": "mocha test -r babel-polyfill -r babel-register",
     "test:standard": "standard"
   },
   "keywords": [
