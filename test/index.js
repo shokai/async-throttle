@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 
-import singletonAsync from '../src/'
+import singletonAsync from '../'
 import {assert} from 'chai'
 import {delay} from './delay'
 
