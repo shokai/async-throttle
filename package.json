@@ -32,5 +32,17 @@
     "npm-run-all": "^4.1.2",
     "standard": "^10.0.3"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shokai/async-singleton.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shokai/async-singleton/issues"
+  },
+  "homepage": "https://github.com/shokai/async-singleton#readme"
 }
