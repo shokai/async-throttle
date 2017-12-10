@@ -6,10 +6,11 @@
   "scripts": {
     "start": "run-s build test",
     "build": "run-s build:*",
-    "build:babel": "babel src/ --out-dir lib/ --source-maps true",
+    "build:babel": "babel src/ --out-dir lib/ --source-maps inline",
     "test": "run-s test:*",
     "test:mocha": "mocha test -r babel-polyfill -r babel-register",
-    "test:standard": "standard"
+    "test:standard": "standard",
+    "clean": "rm -rf lib/"
   },
   "keywords": [
     "async",
