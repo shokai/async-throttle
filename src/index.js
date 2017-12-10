@@ -1,4 +1,4 @@
-import {last} from 'lodash'
+const last = arr => arr[arr.length - 1]
 
 export default function singletonAsync (func, {trailing} = {}) {
   if (typeof func !== 'function') throw new Error('argument is not function.')
