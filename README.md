@@ -10,6 +10,8 @@ make async/promise function execute only one at a time.
 
 ## Usage
 
+### singleton
+
 ```js
 const asyncSingleton = require('async-singleton')
 
@@ -28,12 +30,13 @@ const singleCountUp = asyncSingleton(countUp)
 
 singleCountUp(0) // run
 singleCountUp(10) // skip this
-await singleCountUp(20) // skip this
+await singleCountUp(20) // skip this, but wait for "singleCountUp(0)" to finish
 
 singleCountUp(30) // run this
 ```
 
-result
+
+#### result
 
 ```
 0
@@ -59,10 +62,10 @@ const singleCountUp = asyncSingleton(countUp, {trailing: true})
 singleCountUp(0) // run
 singleCountUp(10) // skip
 singleCountUp(20) // skip
-singleCountUp(30) // run after "sinleCountUp(0)"
+singleCountUp(30) // run, but wait for "sinleCountUp(0)" to finish
 ```
 
-result
+#### result
 
 ```
 0
