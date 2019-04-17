@@ -1,7 +1,8 @@
 *#*
 *~
 .DS_Store
+.babelrc
 test/
 sample/
 src/
-circle.yml
+.circleci/
