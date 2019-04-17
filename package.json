@@ -10,7 +10,8 @@
     "pretest": "npm run build",
     "test": "run-s test:*",
     "test:standard": "standard",
-    "test:mocha": "NODE_ENV=test mocha 'test/*.js' -r @babel/polyfill -r @babel/register --exit"
+    "test:mocha": "NODE_ENV=test mocha 'test/*.js' -r @babel/polyfill -r @babel/register --exit",
+    "prepublishOnly": "npm test"
   },
   "keywords": [
     "async",
