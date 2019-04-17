@@ -4,13 +4,13 @@
   "description": "make async/promise function execute only one at a time.",
   "main": "index.js",
   "scripts": {
-    "start": "run-s build test",
     "build": "run-s build:*",
+    "build:clean": "rm -rf lib/",
     "build:babel": "babel src/ --out-dir lib/ --source-maps inline",
+    "pretest": "npm run build",
     "test": "run-s test:*",
-    "test:mocha": "mocha test -r babel-polyfill -r babel-register",
     "test:standard": "standard",
-    "clean": "rm -rf lib/"
+    "test:mocha": "mocha 'test/*.js' -r babel-polyfill -r babel-register"
   },
   "keywords": [
     "async",
