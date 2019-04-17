@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 
 import singletonAsync from '../'
-import {assert} from 'chai'
-import {delay} from './delay'
+import { assert } from 'chai'
+import { delay } from './delay'
 
 describe('singletonAsync', function () {
   describe('one bye one', function () {
@@ -86,7 +86,7 @@ describe('singletonAsync', function () {
         if (increments.length > 0) count += increments.reduce((a, b) => a + b)
         await delay(100)
         return `done${count}`
-      }, {trailing: true})
+      }, { trailing: true })
 
       singled(1)
       singled(2)
