@@ -14,7 +14,7 @@ async function countUp (n = 0) {
 
 (async () => {
   console.log('trailing: true')
-  const singleCountUp = asyncSingleton(countUp, {trailing: true})
+  const singleCountUp = asyncSingleton(countUp, { trailing: true })
 
   singleCountUp(0) // run
   singleCountUp(10) // skip
