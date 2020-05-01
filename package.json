@@ -3,6 +3,7 @@
   "version": "0.0.5",
   "description": "make async/promise function execute only one at a time.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "run-s build:*",
     "build:clean": "rm -rf lib/",
