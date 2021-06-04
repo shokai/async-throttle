@@ -1,6 +1,6 @@
 {
-  "name": "async-singleton",
-  "version": "0.0.5",
+  "name": "@shokai/async-throttle",
+  "version": "0.0.1",
   "description": "make async/promise function execute only one at a time.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,6 @@
   "keywords": [
     "async",
     "promise",
-    "singleton",
     "throttle",
     "debounce"
   ],
@@ -29,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shokai/async-singleton.git"
+    "url": "git+https://github.com/shokai/async-throttle.git"
   },
   "bugs": {
-    "url": "https://github.com/shokai/async-singleton/issues"
+    "url": "https://github.com/shokai/async-throttle/issues"
   },
-  "homepage": "https://github.com/shokai/async-singleton#readme"
+  "homepage": "https://github.com/shokai/async-throttle#readme"
 }

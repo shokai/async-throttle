@@ -1,7 +1,5 @@
-require('babel-polyfill')
-
-// const asyncSingleton = require('async-singleton')
-const asyncSingleton = require('../')
+// const asyncThrottle = require('@shokai/async-throttle')
+const asyncThrottle = require('../')
 
 const delay = msec => new Promise(resolve => setTimeout(resolve, msec))
 
@@ -18,12 +16,12 @@ async function countUp (n = 0) {
   countUp(10)
   await countUp(20)
 
-  console.log('== with async-singleton ==')
-  const singleCountUp = asyncSingleton(countUp)
+  console.log('== with async-throttle ==')
+  const throttledCountUp = asyncThrottle(countUp)
 
-  singleCountUp(0) // run
-  singleCountUp(10) // skip this
-  await singleCountUp(20) // skip this
+  throttledCountUp(0) // run
+  throttledCountUp(10) // skip this
+  await throttledCountUp(20) // skip this
 
-  singleCountUp(30) // run
+  throttledCountUp(30) // run
 })()
