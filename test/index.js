@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 
-import singletonAsync from '../'
-import { assert } from 'chai'
-import { delay } from './delay'
+const singletonAsync = require('../')
+const { assert } = require('chai')
+const { delay } = require('./delay')
 
 describe('singletonAsync', function () {
   describe('one bye one', function () {
