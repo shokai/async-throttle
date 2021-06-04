@@ -1,6 +1,6 @@
 const last = arr => arr[arr.length - 1]
 
-module.exports = function singletonAsync (func, { trailing } = {}) {
+module.exports = function asyncThrottle (func, { trailing } = {}) {
   if (typeof func !== 'function') throw new Error('argument is not function.')
   let running = false
   let queue = []
