@@ -1,5 +1,5 @@
 {
-  "name": "@shokai/promise-throttle",
+  "name": "@shokai/async-throttle",
   "version": "0.0.1",
   "description": "make async/promise function execute only one at a time.",
   "main": "index.js",
@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shokai/promise-throttle.git"
+    "url": "git+https://github.com/shokai/async-throttle.git"
   },
   "bugs": {
-    "url": "https://github.com/shokai/promise-throttle/issues"
+    "url": "https://github.com/shokai/async-throttle/issues"
   },
-  "homepage": "https://github.com/shokai/promise-throttle#readme"
+  "homepage": "https://github.com/shokai/async-throttle#readme"
 }

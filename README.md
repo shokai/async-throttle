@@ -1,9 +1,9 @@
-# promise-throttle
+# async-throttle
 
 make async/promise function execute only one at a time.
 
-- https://github.com/shokai/promise-throttle
-- https://npmjs.com/package/@shokai/promise-throttle
+- https://github.com/shokai/async-throttle
+- https://npmjs.com/package/@shokai/async-throttle
 
 
 ## Usage
@@ -11,7 +11,7 @@ make async/promise function execute only one at a time.
 ### throttle
 
 ```js
-const promiseThrottle = require('@shokai/promise-throttle')
+const asyncThrottle = require('@shokai/async-throttle')
 
 const delay = msec => new Promise(resolve => setTimeout(resolve, msec))
 
@@ -24,7 +24,7 @@ async function countUp (n = 0) {
 ```
 
 ```js
-const throttledCountUp = promiseThrottle(countUp)
+const throttledCountUp = asyncThrottle(countUp)
 
 throttledCountUp(0) // run
 throttledCountUp(10) // skip this
@@ -55,7 +55,7 @@ When the function being executed is finished, it is executed only once at the la
 
 
 ```js
-const throttledCountUp = promiseThrottle(countUp, {trailing: true})
+const throttledCountUp = asyncThrottle(countUp, {trailing: true})
 
 throttledCountUp(0) // run
 throttledCountUp(10) // skip
