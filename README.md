@@ -5,8 +5,6 @@ make async/promise function execute only one at a time.
 - https://github.com/shokai/async-singleton
 - https://npmjs.com/package/async-singleton
 
-[![CircleCI](https://circleci.com/gh/shokai/async-singleton.svg?style=svg)](https://circleci.com/gh/shokai/async-singleton)
-
 
 ## Usage
 
