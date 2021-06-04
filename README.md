@@ -1,17 +1,17 @@
-# async-singleton
+# promise-throttle
 
 make async/promise function execute only one at a time.
 
-- https://github.com/shokai/async-singleton
-- https://npmjs.com/package/async-singleton
+- https://github.com/shokai/promise-throttle
+- https://npmjs.com/package/@shokai/promise-throttle
 
 
 ## Usage
 
-### singleton
+### throttle
 
 ```js
-const asyncSingleton = require('async-singleton')
+const promiseThrottle = require('@shokai/promise-throttle')
 
 const delay = msec => new Promise(resolve => setTimeout(resolve, msec))
 
@@ -24,13 +24,13 @@ async function countUp (n = 0) {
 ```
 
 ```js
-const singleCountUp = asyncSingleton(countUp)
+const throttledCountUp = promiseThrottle(countUp)
 
-singleCountUp(0) // run
-singleCountUp(10) // skip this
-await singleCountUp(20) // skip this, but wait for "singleCountUp(0)" to finish
+throttledCountUp(0) // run
+throttledCountUp(10) // skip this
+await throttledCountUp(20) // skip this, but wait for "throttledCountUp(0)" to finish
 
-singleCountUp(30) // run this
+throttledCountUp(30) // run this
 ```
 
 
@@ -55,12 +55,12 @@ When the function being executed is finished, it is executed only once at the la
 
 
 ```js
-const singleCountUp = asyncSingleton(countUp, {trailing: true})
+const throttledCountUp = promiseThrottle(countUp, {trailing: true})
 
-singleCountUp(0) // run
-singleCountUp(10) // skip
-singleCountUp(20) // skip
-singleCountUp(30) // run, but wait for "sinleCountUp(0)" to finish
+throttledCountUp(0) // run
+throttledCountUp(10) // skip
+throttledCountUp(20) // skip
+throttledCountUp(30) // run, but wait for "throttledCountUp(0)" to finish
 ```
 
 #### result
