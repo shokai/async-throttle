@@ -4,5 +4,3 @@
 .babelrc
 test/
 sample/
-src/
-.circleci/
