@@ -43,6 +43,21 @@ describe('async-throttle', function () {
         assert.equal(result4, 'done45')
       })
     })
+
+    describe('on error', function () {
+      it('throw error', async function () {
+        const throttled = asyncThrottle(async function () {
+          throw new Error('error')
+        })
+        let err
+        try {
+          await throttled()
+        } catch (_err) {
+          err = _err
+        }
+        assert.instanceOf(err, Error)
+      })
+    })
   })
 
   describe('trailing: false', function () {

@@ -4,7 +4,7 @@ module.exports = function asyncThrottle (func, { trailing } = {}) {
   if (typeof func !== 'function') throw new Error('argument is not function.')
   let running = false
   let queue = []
-  return (...args) => new Promise(resolve => {
+  return (...args) => new Promise((resolve, reject) => {
     (async () => {
       if (running) return queue.push({ resolve, args })
       running = true
@@ -19,6 +19,6 @@ module.exports = function asyncThrottle (func, { trailing } = {}) {
         queue = []
       }
       running = false
-    })()
+    })().catch(reject)
   })
 }
