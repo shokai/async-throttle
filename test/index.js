@@ -46,22 +46,24 @@ describe('async-throttle', function () {
 
     describe('on error', function () {
       it('throw error', async function () {
-        const throttled = asyncThrottle(async function () {
-          throw new Error('error')
+        const throttled = asyncThrottle(async function (msg) {
+          throw new Error(msg)
         })
         let err, err2
         try {
-          await throttled()
+          await throttled('error one')
         } catch (_err) {
           err = _err
         }
         try {
-          await throttled()
+          await throttled('error two')
         } catch (_err) {
           err2 = _err
         }
         assert.instanceOf(err, Error)
+        assert.equal(err.message, 'error one')
         assert.instanceOf(err2, Error)
+        assert.equal(err2.message, 'error two')
       })
     })
   })
