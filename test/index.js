@@ -49,13 +49,19 @@ describe('async-throttle', function () {
         const throttled = asyncThrottle(async function () {
           throw new Error('error')
         })
-        let err
+        let err, err2
         try {
           await throttled()
         } catch (_err) {
           err = _err
         }
+        try {
+          await throttled()
+        } catch (_err) {
+          err2 = _err
+        }
         assert.instanceOf(err, Error)
+        assert.instanceOf(err2, Error)
       })
     })
   })
