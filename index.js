@@ -19,6 +19,10 @@ module.exports = function asyncThrottle (func, { trailing } = {}) {
         queue = []
       }
       running = false
-    })().catch(reject)
+    })().catch(err => {
+      running = false
+      queue = []
+      reject(err)
+    })
   })
 }
