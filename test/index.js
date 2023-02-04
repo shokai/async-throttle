@@ -129,5 +129,33 @@ describe('async-throttle', function () {
       assert.equal(result3, 'done49')
       assert.equal(result4, 'done49')
     })
+
+    it('performs additional runs until queue is empty', async function () {
+      let result
+      const throttled = asyncThrottle(
+        async function (word) {
+          await delay(100)
+          result = word
+        },
+        { trailing: true }
+      )
+
+      throttled('s') // run
+      await delay(30)
+      throttled('se') // skip
+      await delay(30)
+      throttled('sea') // skip
+      await delay(30)
+      throttled('sear') // run after following assert.equal
+      await delay(30)
+      assert.equal(result, 's')
+      throttled('searc') // skip
+      await delay(30)
+      throttled('search') // run
+      await delay(100)
+      assert.equal(result, 'sear')
+      await delay(100)
+      assert.equal(result, 'search')
+    })
   })
 })

@@ -1,5 +1,3 @@
-const last = arr => arr[arr.length - 1]
-
 module.exports = function asyncThrottle (func, { trailing } = {}) {
   if (typeof func !== 'function') throw new Error('argument is not function.')
   let running = false
@@ -10,13 +8,13 @@ module.exports = function asyncThrottle (func, { trailing } = {}) {
       running = true
       let result = await func(...args)
       resolve(result)
-      if (queue.length > 0) {
+      while (queue.length > 0) {
+        const length = queue.length
         if (trailing) {
-          const { args } = last(queue)
+          const { args } = queue[length - 1]
           result = await func(...args)
         }
-        queue.forEach(({ resolve }) => resolve(result))
-        queue = []
+        queue.splice(0, length).forEach(({ resolve }) => resolve(result))
       }
       running = false
     })().catch(err => {
